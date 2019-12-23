@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-avatar class="login">
+        <img  src="assets/contactimage.png">
+      </ion-avatar>
+  <!-- <h1 style="color:blue;">Welcome back!</h1>
+  <h4>Please sign in to continue</h4> -->
+  <ion-row style="height: 25px;"></ion-row>
+  <ion-item>
+      <ion-icon ios="ios-mail" md="md-mail"></ion-icon><ion-input type="email" [(ngModel)]="mailid" placeholder="  Email Id"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-icon ios="ios-lock" md="md-lock"></ion-icon><ion-input type="password" [(ngModel)]="pass" placeholder="  Password"></ion-input>
+  </ion-item>
+  <ion-button type="submit" expand="full">login</ion-button>
+  <ion-row style="height: 25px;"></ion-row>
+  <ion-nav-link [routerLink]="['/forgotpassword']" style="font-weight:bold;">forgot password?</ion-nav-link><br>
+don't have an account?<ion-nav-link [routerLink]="['/signup']" style="font-weight:bold;">Create an Account</ion-nav-link>
+
+</ion-content>
