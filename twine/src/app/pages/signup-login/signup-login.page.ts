@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides, NavController } from '@ionic/angular';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UtilService } from 'src/app/services/util.service';
-import { KeycloakService } from 'src/app/services/KeycloakService';
+import { KeycloakService } from 'src/app/services/security/keycloak.service';
+import { Util } from 'src/app/services/security/util';
 
 @Component({
   selector: 'app-signup-login',
@@ -56,7 +57,7 @@ export class SignupLoginPage implements OnInit {
     }
 
     constructor(private navcontrol: NavController,
-                private util: UtilService,
+                private util: Util,
                 private keycloakService: KeycloakService,
                 private fb: FormBuilder
                 ) {
