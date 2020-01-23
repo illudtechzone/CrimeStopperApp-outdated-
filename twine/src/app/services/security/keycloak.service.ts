@@ -29,30 +29,30 @@ export class KeycloakService {
   createAccount(user: any, password: string, success: any, err: any) {
     this.keycloakConfig.refreshClient().then(() => {
       this.keycloakAdmin = this.keycloakConfig.kcAdminClient;
-      user.realm = 'graeshoppe';
+      user.realm = 'crimestopper';
       user.credentials = [{ type: 'password', value: password }];
       user.attributes = map;
       user.enabled = true;
 
       this.keycloakAdmin.users.create(user)
         .then(async res => {
-          await this.keycloakAdmin.roles
-            .findOneByName({
-              name: 'administator',
-              realm: 'graeshoppe'
-            })
-            .then(async role => {
-              await this.keycloakAdmin.users.addRealmRoleMappings({
-                id: res.id,
-                realm: 'graeshoppe',
-                roles: [
-                  {
-                    id: role.id,
-                    name: role.name
-                  }
-                ]
-              });
-            });
+          // await this.keycloakAdmin.roles
+          //   .findOneByName({
+          //     name: 'administator',
+          //     realm: 'crimestopper'
+          //   })
+          //   .then(async role => {
+          //     await this.keycloakAdmin.users.addRealmRoleMappings({
+          //       id: res.id,
+          //       realm: 'crimestopper',
+          //       roles: [
+          //         {
+          //           id: role.id,
+          //           name: role.name
+          //         }
+          //       ]
+          //     });
+          //   });
           success(res);
         })
         .catch(e => {
@@ -87,7 +87,7 @@ export class KeycloakService {
     return await this.keycloakAdmin.users.update(
       {
         id: keycloakUser.sub,
-        realm: 'graeshoppe'
+        realm: 'crimestopper'
       },
       {
         firstName: keycloakUser.name.split(' ')[0],
@@ -105,7 +105,7 @@ export class KeycloakService {
         this.keycloakAdmin = this.keycloakConfig.kcAdminClient;
         this.keycloakAdmin.users.resetPassword(
           {
-            realm: 'graeshoppe',
+            realm: 'crimestopper',
             id: user.sub,
             credential: {
               temporary: false,

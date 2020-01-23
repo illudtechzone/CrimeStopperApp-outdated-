@@ -103,17 +103,20 @@ export class SignupLoginPage implements OnInit {
             this.util.createLoader().then(loader => {
               console.log('dmpply');
               loader.present();
-              const user = { username: this.email, email: this.email }; 
+              const user = { username: this.email, email: this.email };
 
-              this.keycloakService.createAccount(user,this.password,
+              this.keycloakService.createAccount(user, this.password,
                 (res) => {
                   console.log('successful');
                   this.util.createToast('Registration Successfully Done !');
-                  this.navcontrol.navigateForward('/login');
+                  this.clearForm();
+                  this.value='login';
                   loader.dismiss();
                 },
                 (err) => {
                   loader.dismiss();
+                  console.log('error successful', err);
+
                   if (err.response.status === 409) {
                     this.util.createToast('User Already Exists!');
                   } else {
@@ -159,5 +162,13 @@ export class SignupLoginPage implements OnInit {
         return false;
       }
       return true;
+    }
+
+    clearForm() {
+
+     this.name= '';
+     this.email = '';
+     this.password = '';
+
     }
 }
