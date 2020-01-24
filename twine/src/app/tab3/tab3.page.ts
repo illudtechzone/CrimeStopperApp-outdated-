@@ -1,4 +1,4 @@
-import { KeycloakService } from './../services/KeycloakService';
+import { KeycloakService } from 'src/app/services/security/keycloak.service';
 import { CurrentUserService } from './../services/current-user.service';
 import { CameraOptions, Camera } from '@ionic-native/camera/ngx';
 import { ImageSelectorComponent } from './../components/image-selector/image-selector.component';
@@ -90,8 +90,7 @@ export class Tab3Page {
  update() {
    console.log(this.user);
    this.user.family_name = '';
-   this.keyCloackService.updateCurrentUserDetails(this.user,
-    () => {
+   this.keyCloackService.updateCurrentUserDetails(this.user).then( res=> {
       console.log('Uers Upadtes');
       this.edit();
    },
