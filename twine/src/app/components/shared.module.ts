@@ -11,12 +11,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ImageSelectorComponent } from './image-selector/image-selector.component';
+import { ShortComplaintCardComponent } from './short-complaint-card/short-complaint-card.component';
 
 
 
 @NgModule({
 
-  declarations: [AddComplaintComponent, ComplanitCardComponent,ImageSelectorComponent],
+  declarations: [AddComplaintComponent, ComplanitCardComponent,ImageSelectorComponent,ShortComplaintCardComponent],
 
   imports: [
     FormsModule,
@@ -26,7 +27,8 @@ import { ImageSelectorComponent } from './image-selector/image-selector.componen
     IonicModule.forRoot(),
   ],
 
-exports: [AddComplaintComponent, ComplanitCardComponent,ImageSelectorComponent]
+exports: [AddComplaintComponent, ComplanitCardComponent,ImageSelectorComponent,ShortComplaintCardComponent],
+entryComponents:[ShortComplaintCardComponent]
 
 
 })
