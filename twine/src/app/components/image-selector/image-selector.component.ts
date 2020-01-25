@@ -1,9 +1,11 @@
-import { CropperSettings, ImageCropperComponent } from 'ngx-img-cropper';
-
+// import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import { Camera } from '@ionic-native/camera/ngx';
 import { ModalController, LoadingController } from '@ionic/angular';
-
+import { CropperSettings, ImageCropperComponent } from 'ngx-img-cropper';
+// import { Crop } from '@ionic-native/crop/ngx';
+// import { Base64 } from '@ionic-native/base64/ngx';
+// import { duration } from 'moment';
 
 @Component({
   selector: 'app-image-selector',
@@ -17,6 +19,7 @@ export class ImageSelectorComponent implements OnInit {
   cropperSettings: CropperSettings;
   constructor(
 
+    private camera: Camera,
     private modalController: ModalController,
 
     private loadingController: LoadingController,
