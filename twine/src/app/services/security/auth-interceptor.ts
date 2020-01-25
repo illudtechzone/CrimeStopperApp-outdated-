@@ -18,16 +18,18 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const oauthService = this.injector.get(OAuthService);
-        if (oauthService.hasValidAccessToken()) {
-            request = request.clone({
+      console.log('Intercept worked');
+      const oauthService = this.injector.get(OAuthService);
+      if (oauthService.hasValidAccessToken()) {
+          console.log('Intercept worked: Valid'+oauthService.authorizationHeader());
+          request = request.clone({
                 setHeaders: {
                     Authorization: oauthService.authorizationHeader()
-                }
+                },withCredentials:true
             });
         }
 
-        return next.handle(request).pipe(
+      return next.handle(request).pipe(
             tap(
                 (event: any) => {
                     if (event instanceof HttpResponse) {

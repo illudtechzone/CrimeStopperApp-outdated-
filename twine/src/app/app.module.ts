@@ -18,6 +18,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common
 import { IonicStorageModule } from '@ionic/storage';
 import { ConfigsModule } from './configs/configs.module';
 import { Util } from './services/security/util';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ImageCropperModule } from 'ngx-img-cropper';
+import { ApiModule } from './api/api.module';
 
 ///
 
@@ -31,6 +34,8 @@ import { Util } from './services/security/util';
   imports: [
     ConfigsModule,
     BrowserModule,
+SharedModule,
+ApiModule,
 
     IonicModule.forRoot(),
     AppRoutingModule,

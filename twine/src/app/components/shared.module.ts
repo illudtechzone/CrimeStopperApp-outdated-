@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageSelectorComponent } from './image-selector/image-selector.component';
 
 
@@ -21,6 +21,7 @@ import { ImageSelectorComponent } from './image-selector/image-selector.componen
   imports: [
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     ImageCropperModule,
     RouterModule,
     IonicModule.forRoot(),

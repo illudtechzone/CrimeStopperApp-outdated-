@@ -15,10 +15,10 @@ import { QueryResourceService } from './services/query-resource.service';
  */
 @NgModule({
   imports: [
-    HttpClientModule
+
   ],
   exports: [
-    HttpClientModule
+
   ],
   declarations: [],
   providers: [
