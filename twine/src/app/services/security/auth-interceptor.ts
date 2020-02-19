@@ -21,11 +21,11 @@ export class AuthInterceptor implements HttpInterceptor {
       console.log('Intercept worked');
       const oauthService = this.injector.get(OAuthService);
       if (oauthService.hasValidAccessToken()) {
-          console.log('Intercept worked: Valid'+oauthService.authorizationHeader());
+          console.log('Intercept worked: Valid' + oauthService.authorizationHeader());
           request = request.clone({
                 setHeaders: {
                     Authorization: oauthService.authorizationHeader()
-                },withCredentials:true
+                }, withCredentials : true
             });
         }
 
