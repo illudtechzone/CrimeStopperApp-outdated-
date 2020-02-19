@@ -35,6 +35,21 @@
         </ion-fab-list>
 
         </ion-fab>
+        <br>
+        <br>
+        <ion-slides scrollbar=true>
+          <ion-slide>
+            <app-short-complaint-card></app-short-complaint-card>
+          </ion-slide>
+          <ion-slide>
+            <app-short-complaint-card></app-short-complaint-card>
+          </ion-slide>
+          <ion-slide>
+            <app-short-complaint-card></app-short-complaint-card>
+          </ion-slide>
+        </ion-slides>
+      
+      
         <ion-item text-center  *ngIf="mediaDTO.fileBlob">
           <ion-label>
           <img (click)="selectImage()" [src]="'data:' + mediaDTO.fileBlobContentType + ';base64,' + mediaDTO.fileBlob"/>
